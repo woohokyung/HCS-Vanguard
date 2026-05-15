@@ -1,9 +1,44 @@
 import streamlit as st
 import pandas as pd
 from streamlit_gsheets import GSheetsConnection
+import base64
+import os
 
 # 1. 페이지 설정
 st.set_page_config(page_title="HCS 뱅가드 통합 대시보드", page_icon="🏆", layout="wide")
+
+# --- [배경 설정 로직 추가] ---
+def set_bg_from_local(image_file):
+    if os.path.exists(image_file):
+        with open(image_file, "rb") as f:
+            data = f.read()
+        encoded_image = base64.b64encode(data).decode()
+        st.markdown(
+            f"""
+            <style>
+            .stApp {{
+                background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                            url("data:image/png;base64,{encoded_image}");
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }}
+            /* 가독성을 위한 스타일 조정 */
+            [data-testid="stSidebar"] {{ background-color: rgba(0, 0, 0, 0.8); }}
+            h1, h2, h3, p, span, label {{ color: white !important; }}
+            .stMarkdown {{ color: white !important; }}
+            [data-testid="stDataEditor"] {{ 
+                background-color: rgba(255, 255, 255, 0.1); 
+                border-radius: 10px; 
+                padding: 10px; 
+            }}
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+# 깃허브에 올릴 png 파일 이름 적용
+set_bg_from_local("background.png")
 
 st.title("🏆 HCS 뱅가드 선발제 계산 시스템")
 
