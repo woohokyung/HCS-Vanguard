@@ -13,7 +13,7 @@ st.markdown("""
 
 # --- 2. 구글 시트 연결 설정 ---
 # TODO: 구글 폼 응답이 쌓이는 스프레드시트의 공유 URL을 넣으세요.
-SHEET_URL = "https://docs.google.com/spreadsheets/d/1uG3yvzqbjayYZUXXSwPG04m11SbYSIyWJ1mIAkvi_Ug/edit?resourcekey=&gid=1473131751#gid=1473131751"
+SHEET_URL = "구글 시트 링크 입력"
 # 매회차 sheet 링크 수정시 app.py에서 . 누르고 수정가능
 # 시트 링크만 변환후 왼쪽 돋보기 아래 나뭇가지 버튼에서 "링크 수정" 적고 commit 버튼 누르면 링크 수정 완료
 # 추후 https://hcs-vanguard-rbjx2dpgtrnfwxwbrbfzhg.streamlit.app/ 사이트 접속하면 끝
