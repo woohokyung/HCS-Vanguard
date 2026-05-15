@@ -13,12 +13,13 @@ st.markdown("""
 
 # --- 2. 구글 시트 연결 설정 ---
 # TODO: 구글 폼 응답이 쌓이는 스프레드시트의 공유 URL을 넣으세요.
-SHEET_URL = "여기에_구글_시트_공유_링크를_넣으세요"
+SHEET_URL = "https://docs.google.com/spreadsheets/d/1uG3yvzqbjayYZUXXSwPG04m11SbYSIyWJ1mIAkvi_Ug/edit?resourcekey=&gid=1473131751#gid=1473131751"
 
 try:
     conn = st.connection("gsheets", type=GSheetsConnection)
     # 데이터 읽기 (1분마다 새로고침)
     raw_df = conn.read(spreadsheet=SHEET_URL, ttl="1m")
+    
     
     if not raw_df.empty:
         # 구글 폼 시트의 컬럼을 프로그램에 맞게 자동 연결 (매핑)
