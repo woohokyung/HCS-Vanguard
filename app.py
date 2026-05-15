@@ -51,8 +51,8 @@ if not df.empty:
     # 선발 룰 설정
     st.sidebar.divider()
     st.sidebar.header("⚙️ 선발 조건")
-    base_win = st.sidebar.number_input("🥇 기준 그룹 승수", value=3)
-    target_win = st.sidebar.number_input("🥈 대상 그룹 승수", value=2)
+    base_win = st.sidebar.number_input("🥇 토너먼트 진출 확정 승수", value=3)
+    target_win = st.sidebar.number_input("🥈 선발제 대상 그룹 승수", value=2)
     pick_count = st.sidebar.number_input("🎯 선발 팀 수", value=2)
 
     # 데이터 입력 및 수정
