@@ -57,8 +57,6 @@ if data_source == "구글 시트 주소 입력":
             st.sidebar.success("✅ 시트 연결 성공!")
         except Exception as e:
             st.sidebar.error(f"❌ 시트 연결 실패: {e}")
-    else:
-        st.info("왼쪽 사이드바에 구글 시트 링크를 넣어주세요.")
 
 else:
     uploaded_file = st.sidebar.file_uploader("엑셀이나 CSV 파일을 선택하세요", type=["csv", "xlsx"])
@@ -131,5 +129,3 @@ if not df.empty:
                 st.dataframe(res_df, hide_index=True)
             else:
                 st.write("대상 없음")
-else:
-    st.warning("데이터를 먼저 입력해주세요. (왼쪽 사이드바 이용)")
